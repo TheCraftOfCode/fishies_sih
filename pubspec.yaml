@@ -38,6 +38,9 @@ dependencies:
   otp_text_field:
   auto_size_text:
   font_awesome_flutter:
+  flutter_secure_storage:
+  oktoast:
+  flutter_svg:
 
 
 dev_dependencies:
