@@ -1,3 +1,4 @@
+import 'package:fishies_sih/screens/home.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
 import 'package:fishies_sih/widgets/custom_sliver_widget.dart';
 import 'package:fishies_sih/widgets/error_box.dart';
@@ -152,7 +153,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             alignment: Alignment.topRight,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(primary: colors.alternateButtonColor),
-                              child: Text('Send OTP', style: constants.alternateIconTextStyle,),onPressed: (){},
+                              child: Text('Send OTP', style: constants.alternateIconTextStyle,),onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                            },
 
                             ),
                           ),

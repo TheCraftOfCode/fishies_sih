@@ -16,3 +16,5 @@ EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10);
 
 var alternateIconTextStyle = GoogleFonts.nunito(color: colors.primaryTextColor, fontWeight: FontWeight.bold, fontSize: 17);
 var iconTextStyle = GoogleFonts.nunito(color: colors.alternateButtonColor, fontWeight: FontWeight.bold, fontSize: 17);
+
+var textNormalStyle = GoogleFonts.nunito(color: colors.primaryTextColor, fontSize: 17);
