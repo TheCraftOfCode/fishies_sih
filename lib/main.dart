@@ -1,5 +1,6 @@
 
 import 'package:fishies_sih/screens/home.dart';
+import 'package:fishies_sih/screens/signup.dart';
 import 'package:fishies_sih/utils/themes.dart';
 import 'package:fishies_sih/widgets/load_valid_page_widget.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: darkTheme.DarkTheme,
-      home: LoginPage(),
+      home: SignUpPage(),
       //const LoadValidPageWidget(LoginPage(), HomePage()),
       debugShowCheckedModeBanner: false,
     );
@@ -45,6 +46,5 @@ class _MyAppState extends State<MyApp> {
 
 
 
-//TODO: Change home page nav bar
 //TODO: Dialogue asking lose changes blah blah using alert_dialog widget
 //TODO: Add progress wheels for buttons
