@@ -35,7 +35,7 @@ class darkTheme {
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
               ),
-              textStyle: MaterialStateProperty.all(GoogleFonts.nunito(color: colors.scaffoldColor)),
+              textStyle: MaterialStateProperty.all(GoogleFonts.nunito(color: colors.alternateButtonColor)),
             )),
         focusColor: colors.buttonColor
     );

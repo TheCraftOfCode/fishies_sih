@@ -1,5 +1,6 @@
 
 import 'package:fishies_sih/screens/home.dart';
+import 'package:fishies_sih/screens/landing_screen.dart';
 import 'package:fishies_sih/screens/signup.dart';
 import 'package:fishies_sih/utils/themes.dart';
 import 'package:fishies_sih/widgets/load_valid_page_widget.dart';
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: darkTheme.DarkTheme,
-      home: SignUpPage(),
+      home: LandingScreen(),
       //const LoadValidPageWidget(LoginPage(), HomePage()),
       debugShowCheckedModeBanner: false,
     );
