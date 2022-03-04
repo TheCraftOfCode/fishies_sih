@@ -34,7 +34,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: darkTheme.DarkTheme,
-      home: const LoadValidPageWidget(LoginPage(), HomePage()),
+      home: LoginPage(),
+      //const LoadValidPageWidget(LoginPage(), HomePage()),
       debugShowCheckedModeBanner: false,
     );
   }
