@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                       fontSize: 25),
                 ),
               ),
-
+              const LandingsListView(),
               Padding(
                 padding: const EdgeInsets.only(top: 30.0, left: 20, right: 20),
                 child: ElevatedButton(
@@ -71,7 +71,6 @@ class HomePage extends StatelessWidget {
                       )),
                     )),
               ),
-              const LandingsListView(),
               Padding(
                 padding: const EdgeInsets.only(top: 30.0, left: 20, right: 20),
                 child: ElevatedButton(

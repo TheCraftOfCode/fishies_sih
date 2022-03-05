@@ -40,6 +40,7 @@ dependencies:
   font_awesome_flutter:
   oktoast:
   flutter_svg:
+  google_maps_flutter:
 
 
 dev_dependencies:

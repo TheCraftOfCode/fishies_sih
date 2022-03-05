@@ -28,6 +28,9 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     defaultConfig {
         minSdkVersion 22
+        targetSdkVersion 30
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
     }
 
     compileSdkVersion flutter.compileSdkVersion
