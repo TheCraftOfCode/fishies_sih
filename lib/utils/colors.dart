@@ -10,3 +10,4 @@ var yesButtonColor = const Color(0xff49E79B);
 var noButtonColor = const Color(0xffE73D3D);
 var endButtonColor = const Color(0xffF54D4D);
 var textBoxTextColor = const Color(0xff838383);
+var alertBoxTextColor = const Color(0xff000000);

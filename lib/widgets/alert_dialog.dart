@@ -13,18 +13,22 @@ displayDialog(context, positiveText, negativeText, Function positiveFunction,
       backgroundColor: colors.primaryTextColor,
       title: Text(
         title,
-        style: GoogleFonts.raleway(color: colors.primaryTextColor, fontWeight: FontWeight.bold),
+        style: GoogleFonts.raleway(color: colors.alertBoxTextColor, fontWeight: FontWeight.bold),
       ),
       content: Text(
         subTitle,
-        style: GoogleFonts.raleway(color: colors.primaryTextColor),
+        style: GoogleFonts.raleway(color: colors.alertBoxTextColor),
       ),
       actions: <Widget>[
         negativeText != null
-            ? TextButton(
+            ? ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: colors.noButtonColor
+          ),
+
           child: Text(
             negativeText,
-            style: GoogleFonts.raleway(color: colors.primaryTextColor),
+            style: GoogleFonts.raleway(color: colors.primaryTextColor, fontWeight: FontWeight.bold),
           ),
           onPressed: () {
             Navigator.of(context).pop();
@@ -32,8 +36,11 @@ displayDialog(context, positiveText, negativeText, Function positiveFunction,
         )
             : Container(),
         ElevatedButton(
+style: ElevatedButton.styleFrom(
+  primary: colors.yesButtonColor
+),
           child: Text(positiveText,
-              style: TextStyle(color: colors.primaryTextColor)),
+              style: TextStyle(color: colors.alertBoxTextColor, fontWeight: FontWeight.bold)),
           onPressed: () async {
             positiveFunction();
           },
