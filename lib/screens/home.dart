@@ -1,3 +1,5 @@
+import 'package:camera/camera.dart';
+import 'package:fishies_sih/screens/camera_interface.dart';
 import 'package:fishies_sih/screens/go_fishing.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
 import 'package:fishies_sih/utils/constants.dart' as constants;
@@ -58,7 +60,16 @@ class HomePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 30.0, left: 20, right: 20),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await availableCameras().then(
+                        (value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CameraApp(cameras: value,),
+                          ),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: colors.alternateButtonColor),
                     child: SizedBox(
@@ -77,7 +88,7 @@ class HomePage extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () {
 
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => GoFishing()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const GoFishing()));
                     },
                     style: ElevatedButton.styleFrom(
                         primary: colors.alternateButtonColor),
