@@ -77,35 +77,35 @@ class _ExampleHomePageState extends State<ExampleHomePage>
         stackNum: 3,
         swipeEdge: 5.0,
         maxWidth: MediaQuery.of(context).size.width * 0.9,
-        maxHeight: MediaQuery.of(context).size.width * 0.5,
+        maxHeight: MediaQuery.of(context).size.width * 0.63,
         minWidth: MediaQuery.of(context).size.width * 0.5,
-        minHeight: MediaQuery.of(context).size.width * 0.1,
+        minHeight: MediaQuery.of(context).size.width * 0.62,
         cardBuilder: (context, index) => Card(
           color: colors.textBoxColor,
           child:  ListTile(
             textColor: colors.primaryTextColor,
             title: Text(Locations[index], style: GoogleFonts.nunito(
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
 
             ),),
-            // subtitle: Center(
-            //   child: Row(
-            //    children: [
-            //      Text(Dates[index], style: GoogleFonts.nunito(
-            //        fontSize: 18,
-            //
-            //      ),
-            //      ),
-            //      Spacer(),
-            //      Text(KGs[index], style: GoogleFonts.nunito(
-            //        fontSize: 18,
-            //
-            //      ),
-            //      ),
-            //    ],
-            //   ),
-            // ),
+            subtitle: Center(
+              child: Row(
+               children: [
+                 Text(Dates[index], style: GoogleFonts.nunito(
+                   fontSize: 18,
+
+                 ),
+                 ),
+                 Spacer(),
+                 Text(KGs[index], style: GoogleFonts.nunito(
+                   fontSize: 18,
+
+                 ),
+                 ),
+               ],
+              ),
+            ),
           ),
         ),
         cardController: controller = CardController(),

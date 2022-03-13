@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
 import 'package:flutter_tindercard/flutter_tindercard.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 
 import '../widgets/custom_sliver_widget.dart';
 
@@ -20,7 +22,13 @@ class _GoFishingState extends State<GoFishing> {
   final items = ['species 1', 'species 2', 'species 3'];
   String? value = 'Pick Species';
   late CardController controller;
+  late GoogleMapController mapController;
 
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +56,13 @@ class _GoFishingState extends State<GoFishing> {
                     height: MediaQuery.of(context).size.height * 0.3,
                     width: MediaQuery.of(context).size.height * 0.8,
                     color: colors.textBoxColor,
+                    child: GoogleMap(
+                      onMapCreated: _onMapCreated,
+                      initialCameraPosition: CameraPosition(
+                        target: _center,
+                        zoom: 11.0,
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
