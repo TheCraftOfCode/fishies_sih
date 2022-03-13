@@ -23,11 +23,6 @@ class _SavedDataPageState extends State<SavedDataPage> {
     var allLandingsMap = [
       landingsMap,
       landingsMap,
-      landingsMap,
-      landingsMap,
-      landingsMap,
-      landingsMap,
-      landingsMap,
       landingsMap
     ];
     return Container(

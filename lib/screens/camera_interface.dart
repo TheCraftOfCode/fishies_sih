@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:fishies_sih/screens/saved_data.dart';
+import 'package:fishies_sih/screens/recorded_data.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:gallery_saver/gallery_saver.dart';
@@ -19,7 +19,7 @@ class _CameraAppState extends State<CameraApp> with WidgetsBindingObserver, Tick
   @override
   void initState() {
     super.initState();
-    controller = CameraController(widget.cameras![1], ResolutionPreset.max);
+    controller = CameraController(widget.cameras![0], ResolutionPreset.max);
     controller.initialize().then((_) {
       if (!mounted) {
         return;
@@ -94,7 +94,7 @@ class _CameraAppState extends State<CameraApp> with WidgetsBindingObserver, Tick
                               Navigator.pushReplacement<void, void>(
                                 context,
                                 MaterialPageRoute<void>(
-                                  builder: (BuildContext context) => const SavedDataPage(),
+                                  builder: (BuildContext context) => const RecordDataPage(),
                                 ),
                               );
                             },
