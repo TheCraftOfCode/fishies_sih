@@ -1,127 +1,78 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_tindercard/flutter_tindercard.dart';
-
-
 import 'package:fishies_sih/utils/colors.dart' as colors;
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-class ExampleHomePage extends StatefulWidget {
+import 'package:fishies_sih/utils/data_model.dart';
+
+class SwipeCard extends StatefulWidget {
+  const SwipeCard({Key? key}) : super(key: key);
+
   @override
-  _ExampleHomePageState createState() => _ExampleHomePageState();
+  _SwipeCardState createState() => _SwipeCardState();
 }
 
-class _ExampleHomePageState extends State<ExampleHomePage>
-    with TickerProviderStateMixin {
-  List<String> Locations = [
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
 
-  ];
-  List<String> Dates = [
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
 
-  ];
-  List<String> KGs = [
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-    "Location 1",
-
-  ];
+class _SwipeCardState extends State<SwipeCard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    CardController controller; //Use this to trigger swap.
 
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.2,
-      child: new TinderSwapCard(
-        swipeUp: true,
-        swipeDown: true,
-        orientation: AmassOrientation.BOTTOM,
-        totalNum: Locations.length,
-        stackNum: 3,
-        swipeEdge: 5.0,
-        maxWidth: MediaQuery.of(context).size.width * 0.9,
-        maxHeight: MediaQuery.of(context).size.width * 0.63,
-        minWidth: MediaQuery.of(context).size.width * 0.5,
-        minHeight: MediaQuery.of(context).size.width * 0.62,
-        cardBuilder: (context, index) => Card(
+    final List<LocationData> locationArray = [
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    LocationData("locationID", 171.156345, 171.156345, "date", 20.4),
+    ];
+
+
+
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.23,
+      child: PageView.builder(
+        itemCount: 14,
+        itemBuilder: (context, index) => Card(
           color: colors.textBoxColor,
-          child:  ListTile(
+          child: ListTile(
+            contentPadding: const EdgeInsets.only(left: 15, right: 15, top: 20),
             textColor: colors.primaryTextColor,
-            title: Text(Locations[index], style: GoogleFonts.nunito(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-
-            ),),
+            title: Text(
+              locationArray[index].locationID,
+              style: GoogleFonts.nunito(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             subtitle: Center(
               child: Row(
-               children: [
-                 Text(Dates[index], style: GoogleFonts.nunito(
-                   fontSize: 18,
-
-                 ),
-                 ),
-                 Spacer(),
-                 Text(KGs[index], style: GoogleFonts.nunito(
-                   fontSize: 18,
-
-                 ),
-                 ),
-               ],
+                children: [
+                  Text(
+                    locationArray[index].date,
+                    style: GoogleFonts.nunito(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    locationArray[index].weight.toString(),
+                    style: GoogleFonts.nunito(
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
         ),
-        cardController: controller = CardController(),
-        swipeUpdateCallback:
-            (DragUpdateDetails details, Alignment align) {
-          /// Get swiping card's alignment
-          if (align.x < 0) {
-            //Card is LEFT swiping
-          } else if (align.x > 0) {
-            //Card is RIGHT swiping
-          }
-        },
-        swipeCompleteCallback:
-            (CardSwipeOrientation orientation, int index) {
-          /// Get orientation & index of swiped card!
-        },
       ),
     );
   }

@@ -39,6 +39,9 @@ class _MyAppState extends State<MyApp> {
       home: LandingScreen(),
       //const LoadValidPageWidget(LoginPage(), HomePage()),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/home' : (context) => HomePage(),
+      },
     );
   }
 }

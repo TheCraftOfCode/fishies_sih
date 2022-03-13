@@ -1,12 +1,8 @@
 import 'package:fishies_sih/widgets/alert_dialog.dart';
-import 'package:fishies_sih/widgets/dropdown.dart';
-import 'package:fishies_sih/widgets/swipe_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
-import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'go_fishing.dart';
@@ -27,32 +23,30 @@ class _FishingState extends State<Fishing> {
     mapController = controller;
   }
   void showToast(){
-    print("hi");
     Fluttertoast.showToast(
         msg: "Location has been successfully recorded",
 
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
-        // backgroundColor: Colors.red,
-        //textColor: Colors.white,
+
         webPosition: "center",
         fontSize: 16.0
     );
-    Navigator.push(context, MaterialPageRoute(builder: (context) => GoFishing()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const GoFishing()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => GoFishing()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const GoFishing()));
             },
           ),
 
@@ -68,18 +62,18 @@ class _FishingState extends State<Fishing> {
           children: [
             Expanded(
               flex: 1,
-              child: Padding(padding: EdgeInsets.all(12.0),
+              child: Padding(padding: const EdgeInsets.all(12.0),
               child:  Row(
                 children: [
-                  Icon(Icons.arrow_back_ios, size: 30,),
-                  Spacer(),
+                  const Icon(Icons.arrow_back_ios, size: 30,),
+                  const Spacer(),
                   Text("Turn Left",
                     style: GoogleFonts.nunito(
                         fontWeight: FontWeight.bold,
                         color: colors.primaryTextColor,
                         fontSize: 30
                     ),),
-                  Spacer(),
+                  const Spacer(),
                   Text("3.1nm",
                     style: GoogleFonts.nunito(
                         fontWeight: FontWeight.bold,
@@ -126,9 +120,8 @@ class _FishingState extends State<Fishing> {
                   padding: const EdgeInsets.only(top: 30.0, left: 20, right: 20),
                   child: ElevatedButton(
                       onPressed: () {
-
                         displayDialog(context, "Yes", "No", (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => GoFishing()));
+                          Navigator.popAndPushNamed(context, '/home');
                         }, 'End this trip', 'Are you sure you want to end this trip?');
                       },
                       style: ElevatedButton.styleFrom(

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:fishies_sih/utils/data_model.dart';
 
 
 import '../widgets/custom_sliver_widget.dart';
@@ -73,7 +74,7 @@ class _GoFishingState extends State<GoFishing> {
                         fontSize: 18, color: colors.primaryTextColor),
                   ),
                 ),
-ExampleHomePage(),
+                const SwipeCard(),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
