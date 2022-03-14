@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:fishies_sih/utils/locations.dart' as locations;
 
 import 'go_fishing.dart';
 
@@ -20,9 +21,6 @@ class _FishingState extends State<Fishing> {
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
   void showToast(){
     Fluttertoast.showToast(
         msg: "Location has been successfully recorded",
@@ -37,8 +35,30 @@ class _FishingState extends State<Fishing> {
     Navigator.pop(context);
   }
 
+  final Map<String, Marker> _markers = {};
+  Future<void> _onMapCreated(GoogleMapController controller) async {
+    mapController = controller;
+
+    final googleOffices = await locations.getGoogleOffices();
+    setState(() {
+      _markers.clear();
+      for (final office in googleOffices.offices) {
+        final marker = Marker(
+          markerId: MarkerId(office.name),
+          position: LatLng(office.lat, office.lng),
+          infoWindow: InfoWindow(
+            title: office.name,
+            snippet: office.address,
+          ),
+        );
+        _markers[office.name] = marker;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Container(
       margin: const EdgeInsets.all(8.0),
       child: Scaffold(
@@ -97,6 +117,7 @@ class _FishingState extends State<Fishing> {
                   target: _center,
                   zoom: 11.0,
                 ),
+                markers: _markers.values.toSet(),
               ),
             ),
             flex: 4,),

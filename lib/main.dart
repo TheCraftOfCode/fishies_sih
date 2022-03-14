@@ -1,13 +1,8 @@
 
-import 'package:fishies_sih/screens/home.dart';
 import 'package:fishies_sih/screens/landing_screen.dart';
-import 'package:fishies_sih/screens/signup.dart';
 import 'package:fishies_sih/utils/themes.dart';
-import 'package:fishies_sih/widgets/load_valid_page_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:oktoast/oktoast.dart';
-import 'screens/login.dart';
 
 //TODO: Change Icons in each tiles in home page
 //TODO: Fill about pages

@@ -18,7 +18,7 @@ class LandingScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(child: Container(), flex: 4,),
-            Expanded(child: Text('Find \nmy Fishies', style: GoogleFonts.nunito(fontSize: 50, fontWeight: FontWeight.bold, color: colors.primaryTextColor),), flex: 5,),
+            Expanded(child: Text('Find \nmy Fishes', style: GoogleFonts.nunito(fontSize: 50, fontWeight: FontWeight.bold, color: colors.primaryTextColor),), flex: 5,),
             Expanded(child: Text('Something comes here', style: TextStyle(color: colors.primaryTextColor),),flex: 4,),
             Expanded(child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
