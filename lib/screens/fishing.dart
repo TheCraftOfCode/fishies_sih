@@ -123,7 +123,7 @@ class _FishingState extends State<Fishing> {
                   child: ElevatedButton(
                       onPressed: () {
                         displayDialog(context, "Yes", "No", (){
-                          Navigator.pushNamedAndRemoveUntil(context, "/home", (Route<dynamic> route) => false);
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomePage()), (Route<dynamic> route) => false);
                         }, 'End this trip', 'Are you sure you want to end this trip?');
                       },
                       style: ElevatedButton.styleFrom(
