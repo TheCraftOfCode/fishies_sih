@@ -1,13 +1,10 @@
 import 'package:fishies_sih/screens/fishing.dart';
 import 'package:fishies_sih/widgets/dropdown.dart';
 import 'package:fishies_sih/widgets/swipe_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fishies_sih/utils/colors.dart' as colors;
-import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:fishies_sih/utils/data_model.dart';
 
 
 import '../widgets/custom_sliver_widget.dart';
@@ -22,7 +19,6 @@ class GoFishing extends StatefulWidget {
 class _GoFishingState extends State<GoFishing> {
   final items = ['species 1', 'species 2', 'species 3'];
   String? value = 'Pick Species';
-  late CardController controller;
   late GoogleMapController mapController;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
@@ -81,7 +77,7 @@ class _GoFishingState extends State<GoFishing> {
                     padding: const EdgeInsets.only(top: 30.0, left: 20, right: 20),
                     child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Fishing()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const Fishing()));
                         },
                         style: ElevatedButton.styleFrom(
                             primary: colors.alternateButtonColor),

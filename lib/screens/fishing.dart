@@ -33,7 +33,7 @@ class _FishingState extends State<Fishing> {
         webPosition: "center",
         fontSize: 16.0
     );
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const GoFishing()));
+    Navigator.pop(context);
   }
 
   @override
@@ -46,7 +46,8 @@ class _FishingState extends State<Fishing> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const GoFishing()));
+              //TODO: Please use pop here
+              Navigator.pop(context);
             },
           ),
 
