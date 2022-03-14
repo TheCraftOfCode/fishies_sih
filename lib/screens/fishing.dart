@@ -1,3 +1,4 @@
+import 'package:fishies_sih/screens/home.dart';
 import 'package:fishies_sih/widgets/alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -122,7 +123,7 @@ class _FishingState extends State<Fishing> {
                   child: ElevatedButton(
                       onPressed: () {
                         displayDialog(context, "Yes", "No", (){
-                          Navigator.popAndPushNamed(context, '/home');
+                          Navigator.pushNamedAndRemoveUntil(context, "/home", (Route<dynamic> route) => false);
                         }, 'End this trip', 'Are you sure you want to end this trip?');
                       },
                       style: ElevatedButton.styleFrom(
