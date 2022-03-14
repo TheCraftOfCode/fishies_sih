@@ -5,25 +5,24 @@ import 'package:fishies_sih/utils/colors.dart' as colors;
 import 'package:fishies_sih/utils/constants.dart' as constants;
 
 class SavedDataPage extends StatefulWidget {
-  const SavedDataPage({Key? key}) : super(key: key);
-
+  String resp='Name';
+  SavedDataPage( {Key? key,required this.resp} ): super(key: key);
   @override
   _SavedDataPageState createState() => _SavedDataPageState();
 }
 
 class _SavedDataPageState extends State<SavedDataPage> {
-  var landingsMap = {
-    'species': 'Fish species name',
-    'date': '26 Feb 2022',
-    'weight': 30
-  };
 
   @override
   Widget build(BuildContext context) {
+    var landingsMap = {
+      'species': widget.resp,
+      'date': '14 Mar 2022',
+      'weight': 30
+    };
+
     var allLandingsMap = [
       landingsMap,
-      landingsMap,
-      landingsMap
     ];
     return Container(
       color: colors.scaffoldColor,

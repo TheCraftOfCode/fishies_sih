@@ -92,7 +92,7 @@ class _RecordDataPageState extends State<RecordDataPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const SavedDataPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SavedDataPage(resp: "")));
         },
         child: const Icon(Icons.check),
       ),

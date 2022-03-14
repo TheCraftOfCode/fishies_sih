@@ -3,7 +3,10 @@ import 'package:fishies_sih/screens/saved_data.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:http/http.dart' as http;
 class CameraApp extends StatefulWidget {
   final List<CameraDescription> cameras;
   const CameraApp({Key? key, required this.cameras}) : super(key: key);
@@ -49,6 +52,8 @@ class _CameraAppState extends State<CameraApp> with WidgetsBindingObserver, Tick
 
   @override
   Widget build(BuildContext context) {
+    var resp;
+
     if (!controller.value.isInitialized) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -90,11 +95,23 @@ class _CameraAppState extends State<CameraApp> with WidgetsBindingObserver, Tick
                               for (var i in imageList) {
                                 //TODO: Redirect user after saving
                                 await GallerySaver.saveImage(i.path);
+                                File imagefile = File(i.path); //convert Path to File
+                                Uint8List imagebytes = await imagefile.readAsBytes(); //convert to bytes
+                                String base64string = base64.encode(imagebytes); //convert bytes to base64 string
+                                print(base64string);
+                                var url = Uri.parse('http://192.168.29.188:5000/');
+                                var response = await http.post(url, body:{
+                                'base':base64string
+                                });
+                                resp= response.body;
+                                print('Response status: ${response.statusCode}');
+                                print('Response body: ${resp}');
+
                               }
                               Navigator.pushReplacement<void, void>(
                                 context,
                                 MaterialPageRoute<void>(
-                                  builder: (BuildContext context) => const SavedDataPage(),
+                                  builder: (BuildContext context) => SavedDataPage(resp:resp),
                                 ),
                               );
                             },
